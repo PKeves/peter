@@ -6,93 +6,35 @@
     },
     {
         "key": "cmd+1",
-        "command": "workbench.action.openEditorAtIndex1",
-        "when": "!terminalFocus"
-    },
-    {
-        "key": "cmd+2",
-        "command": "workbench.action.openEditorAtIndex2",
-        "when": "!terminalFocus"
+        "command": "workbench.action.openEditorAtIndex1"
     },
     {
         "key": "cmd+3",
-        "command": "workbench.action.openEditorAtIndex3",
-        "when": "!terminalFocus"
+        "command": "workbench.action.openEditorAtIndex3"
     },
     {
         "key": "cmd+4",
-        "command": "workbench.action.openEditorAtIndex4",
-        "when": "!terminalFocus"
+        "command": "workbench.action.openEditorAtIndex4"
     },
     {
         "key": "cmd+5",
-        "command": "workbench.action.openEditorAtIndex5",
-        "when": "!terminalFocus"
+        "command": "workbench.action.openEditorAtIndex5"
     },
     {
         "key": "cmd+6",
-        "command": "workbench.action.openEditorAtIndex6",
-        "when": "!terminalFocus"
+        "command": "workbench.action.openEditorAtIndex6"
     },
     {
         "key": "cmd+7",
-        "command": "workbench.action.openEditorAtIndex7",
-        "when": "!terminalFocus"
+        "command": "workbench.action.openEditorAtIndex7"
     },
     {
         "key": "cmd+8",
-        "command": "workbench.action.openEditorAtIndex8",
-        "when": "!terminalFocus"
+        "command": "workbench.action.openEditorAtIndex8"
     },
     {
         "key": "cmd+9",
-        "command": "workbench.action.openEditorAtIndex9",
-        "when": "!terminalFocus"
-    },
-    {
-        "key": "cmd+1",
-        "command": "workbench.action.terminal.focusAtIndex1",
-        "when": "terminalFocus"
-    },
-    {
-        "key": "cmd+2",
-        "command": "workbench.action.terminal.focusAtIndex2",
-        "when": "terminalFocus"
-    },
-    {
-        "key": "cmd+3",
-        "command": "workbench.action.terminal.focusAtIndex3",
-        "when": "terminalFocus"
-    },
-    {
-        "key": "cmd+4",
-        "command": "workbench.action.terminal.focusAtIndex4",
-        "when": "terminalFocus"
-    },
-    {
-        "key": "cmd+5",
-        "command": "workbench.action.terminal.focusAtIndex5",
-        "when": "terminalFocus"
-    },
-    {
-        "key": "cmd+6",
-        "command": "workbench.action.terminal.focusAtIndex6",
-        "when": "terminalFocus"
-    },
-    {
-        "key": "cmd+7",
-        "command": "workbench.action.terminal.focusAtIndex7",
-        "when": "terminalFocus"
-    },
-    {
-        "key": "cmd+8",
-        "command": "workbench.action.terminal.focusAtIndex8",
-        "when": "terminalFocus"
-    },
-    {
-        "key": "cmd+9",
-        "command": "workbench.action.terminal.focusAtIndex9",
-        "when": "terminalFocus"
+        "command": "workbench.action.openEditorAtIndex9"
     },
     {
         "key": "shift+tab",
@@ -110,16 +52,12 @@
         "when": "!scmRepository"
     },
     {
-        "key": "cmd+s",
-        "command": "workbench.action.terminal.focus"
-    }, 
-    {
         "key": "shift+alt+f",
         "command": "-editor.action.formatDocument",
         "when": "editorTextFocus && !editorReadonly"
     },
     {
-        "key": "alt+h",
+        "key": "alt+d",
         "command": "editor.action.showHover",
         "when": "editorTextFocus"
     },
@@ -172,9 +110,9 @@
         "when": "editorTextFocus && vim.active && vim.overrideCopy && vim.use<D-c> && !inDebugRepl"
     },
     {
-        "key": "cmd+shift+n",
+        "key": "shift+cmd+n",
         "command": "explorer.newFolder",
-        "when": "listFocus && !editorFocus"
+        "when": "filesExplorerFocus"
     },
     {
         "key": "shift+space",
@@ -336,7 +274,7 @@
     {
         "key": "cmd+n",
         "command": "workbench.action.files.newUntitledFile",
-        "when": "editorFocus && !findWidgetVisible"
+        "when": "editorFocus && !findWidgetVisible && !terminalEdtiroFocus"
     },
     {
         "key": "cmd+t",
@@ -352,7 +290,7 @@
         "when": "terminalFocus"
     },
     {
-        "key": "cmd+y",
+        "key": "cmd+s",
         "command": "workbench.action.keepEditor"
     },
     {
@@ -617,7 +555,7 @@
         "when": "isDevelopment"
     },
     {
-        "key": "cmd+g",
+        "key": "shift+cmd+f",
         "command": "editor.action.startFindReplaceAction"
     },
     {
@@ -891,7 +829,7 @@
         "when": "inKeybindings && keybindingFocus"
     },
     {
-        "key": "alt+cmd+backspace",
+        "key": "cmd+backspace",
         "command": "fileutils.removeFile",
         "when": "editorFocus && !findWidgetVisible"
     },
@@ -949,7 +887,7 @@
         "command": "-workbench.action.focusThirdEditorGroup"
     },
     {
-        "key": "shift+cmd+m",
+        "key": "alt+f",
         "command": "search.action.openNewEditor"
     },
     {
@@ -1286,7 +1224,7 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "shift+cmd+a",
+        "key": "shift+cmd+k",
         "command": "sortLines.sortLinesUnique",
         "when": "editorFocus"
     },
@@ -1540,10 +1478,6 @@
         "command": "-java.workspace.compile"
     },
     {
-        "key": "shift+alt+b",
-        "command": "bookmarks.clearFromAllFiles"
-    },
-    {
         "key": "shift+alt+cmd+u",
         "command": "workbench.action.focusActiveEditorGroup"
     },
@@ -1783,11 +1717,6 @@
         "when": "terminalFocus"
     },
     {
-        "key": "cmd+n",
-        "command": "workbench.action.terminal.newInActiveWorkspace",
-        "when": "terminalFocus"
-    },
-    {
         "key": "cmd+/",
         "command": "-editor.action.commentLine",
         "when": "editorTextFocus && !editorReadonly"
@@ -1987,7 +1916,7 @@
         "command": "workbench.action.minimizeOtherEditors"
     },
     {
-        "key": "shift+alt+f",
+        "key": "shift+cmd+i",
         "command": "editor.action.formatDocument",
         "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
     },
@@ -2051,7 +1980,7 @@
         "when": "editorFocus"
     },
     {
-        "key": "shift+alt+s",
+        "key": "shift+cmd+s",
         "command": "workbench.action.files.saveAs"
     },
     {
@@ -2102,7 +2031,7 @@
         "when": "terminalFindFocused && terminalProcessSupported || terminalFocus && terminalProcessSupported"
     },
     {
-        "key": "alt+g",
+        "key": "shift+alt+f",
         "command": "workbench.action.replaceInFiles"
     },
     {
@@ -2134,11 +2063,11 @@
         "when": "explorerResourceIsFolder && explorerViewletVisible && filesExplorerFocus && !inputFocus"
     },
     {
-        "key": "shift+alt+cmd+9",
+        "key": "alt+cmd+r",
         "command": "workbench.view.debug"
     },
     {
-        "key": "alt+d",
+        "key": "alt+b",
         "command": "editor.debug.action.toggleBreakpoint",
         "when": "debuggersAvailable && editorTextFocus"
     },
@@ -2178,10 +2107,6 @@
         "when": "terminalFindFocused && terminalProcessSupported || terminalFocus && terminalProcessSupported"
     },
     {
-        "key": "cmd+r",
-        "command": "workbench.action.focusSideBar"
-    },
-    {
         "key": "alt+cmd+n",
         "command": "workbench.action.terminal.toggleFindRegex",
         "when": "terminalFindFocused && terminalProcessSupported || terminalFocus && terminalProcessSupported"
@@ -2192,7 +2117,7 @@
         "when": "terminalFindFocused && terminalProcessSupported || terminalFocus && terminalProcessSupported"
     },
     {
-        "key": "shift+alt+d",
+        "key": "shift+alt+b",
         "command": "workbench.debug.viewlet.action.removeAllBreakpoints"
     },
     {
@@ -2226,10 +2151,6 @@
     {
         "key": "ctrl+cmd+9",
         "command": "-workbench.action.moveEditorToLastGroup"
-    },
-    {
-        "key": "alt+r",
-        "command": "workbench.action.toggleSidebarVisibility"
     },
     {
         "key": "shift+cmd+enter",
@@ -2331,5 +2252,80 @@
     {
         "key": "shift+cmd+t",
         "command": "-workbench.action.reopenClosedEditor"
+    },
+    {
+        "key": "shift+cmd+\\",
+        "command": "-workbench.action.terminal.focusTabs",
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported || terminalHasBeenCreated && terminalTabsFocus || terminalProcessSupported && terminalTabsFocus"
+    },
+    {
+        "key": "cmd+2",
+        "command": "workbench.action.openEditorAtIndex2"
+    },
+    {
+        "key": "ctrl+2",
+        "command": "-workbench.action.openEditorAtIndex2"
+    },
+    {
+        "key": "cmd+r",
+        "command": "-jupyter.refreshDataViewer",
+        "when": "isWorkspaceTrusted && jupyter.dataViewerActive"
+    },
+    {
+        "key": "shift+alt+cmd+h",
+        "command": "workbench.action.focusSideBar"
+    },
+    {
+        "key": "shift+cmd+n",
+        "command": "workbench.action.createTerminalEditor",
+        "when": "!filesExplorerFocus"
+    },
+    {
+        "key": "cmd+w",
+        "command": "-extension.closeEditor"
+    },
+    {
+        "key": "cmd+w",
+        "command": "workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "shift+cmd+e",
+        "command": "workbench.action.terminal.rename",
+        "when": "terminalEditorFocus"
+    },
+    {
+        "key": "shift+cmd+;",
+        "command": "-breadcrumbs.focus",
+        "when": "breadcrumbsPossible"
+    },
+    {
+        "key": "cmd+b",
+        "command": "breadcrumbs.focusAndSelect"
+    },
+    {
+        "key": "cmd+r",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "cmd+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "cmd+n",
+        "command": "explorer.newFile",
+        "when": "filesExplorerFocus"
+    },
+    {
+        "key": "shift+cmd+h",
+        "command": "extension.partialDiff.diffVisibleEditors"
+    },
+    {
+        "key": "shift+cmd+h",
+        "command": "-workbench.action.replaceInFiles"
+    },
+    {
+        "key": "alt+z",
+        "command": "-workbench.action.terminal.sizeToContentWidth",
+        "when": "terminalFocus && terminalHasBeenCreated && terminalIsOpen || terminalFocus && terminalIsOpen && terminalProcessSupported"
     }
 ]
