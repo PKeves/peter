@@ -21,28 +21,17 @@ return
 
 ExtractAppTitle(FullTitle){
 	AppTitle := SubStr(FullTitle, InStr(FullTitle, " ", false, -1) +1)
-	return AppTtitle
+	return AppTitle
 }
 
 snapper(){
 	WinExist("A")
 	WinGetPos, posX, posY, sizeX, sizeY
 	if(posX < (A_ScreenWidth / 2) -(sizeX / 2)){
-		WinMove, A ,, ((A-ScreenWidth / 2) -7), 0 , ((A_ScreenWidth /2) + 10), (A_ScreenHeight +7)
+		WinMove, A ,, ((A_ScreenWidth / 2) -7), 0 , ((A_ScreenWidth /2) + 10), (A_ScreenHeight +7)
 	}
 	else{
 		WinMove, A ,, -7, 0 , ((A_ScreenWidth / 2) +10), (A_ScreenHeight +7)
-	}
-}
-
-snapper_2(){
-	WinExist("A")
-	WinGetPos, posX, posY, sizeX, sizeY
-	if(posX < (A_ScreenWidth / 2) -(sizeX / 2)){
-		WinMove, A ,, -7, 0 , ((A_ScreenWidth / 2) +10), (A_ScreenHeight +7)
-	}
-	else{
-		WinMove, A ,, ((A-ScreenWidth / 2) -7), 0 , ((A_ScreenWidth /2) + 10), (A_ScreenHeight +7)
 	}
 }
 
@@ -63,6 +52,7 @@ next_window(){
 		}
 	}
 }
+
 $q::
 if GetKeyState("RControl","P,"){
 	IfWinExist ahk_exe chrome.exe
@@ -93,16 +83,30 @@ else{
 }
 return
 
+$e::
+if GetKeyState("RControl","P,"){
+	IfWinExist ahk_exe Slack.exe
+		win_activate ahk_exe Slack.exe
+	else
+		run,"path_to_executable"
+	WinWait ahk_exe Slack.exe
+	WinActivate ahk_exe Slack.exe
+	WinWaitActive ahk_exe Slack.exe
+}
+else{
+	SendInput, {blind}e
+}
+return
 
 $r::
 if GetKeyState("RControl","P,"){
-	IfWinExist ahk_exe EXCEL.exe
-		win_activate ahk_exe EXCEL.exe
+	IfWinExist ahk_exe Zoom.exe
+		win_activate ahk_exe Zoom.exe
 	else
 		run,"path_to_executable"
-	WinWait ahk_exe EXCEL.exe
-	WinActivate ahk_exe EXCEL.exe
-	WinWaitActive ahk_exe EXCEL.exe
+	WinWait ahk_exe Zoom.exe
+	WinActivate ahk_exe Zoom.exe
+	WinWaitActive ahk_exe Zoom.exe
 }
 else{
 	SendInput, {blind}r
@@ -121,37 +125,6 @@ if GetKeyState("RControl","P,"){
 }
 else{
 	SendInput, {blind}t
-}
-return
-
-
-$u::
-if GetKeyState("RControl","P,"){
-	IfWinExist ahk_exe Symphony.exe
-		win_activate ahk_exe Symphony.exe
-	else
-		run,"path_to_executable"
-	WinWait ahk_exe Symphony.exe
-	WinActivate ahk_exe Symphony.exe
-	WinWaitActive ahk_exe Symphony.exe
-}
-else{
-	SendInput, {blind}u
-}
-return
-
-$i::
-if GetKeyState("RControl","P,"){
-	IfWinExist ahk_exe SnippingTool.exe
-		win_activate ahk_exe SnippingTool.exe
-	else
-		run,"path_to_executable"
-	WinWait ahk_exe SnippingTool.exe
-	WinActivate ahk_exe SnippingTool.exe
-	WinWaitActive ahk_exe SnippingTool.exe
-}
-else{
-	SendInput, {blind}u
 }
 return
 
@@ -496,15 +469,6 @@ else{
 }
 return
 
-$j::
-if GetKeyState("RControl","P,"){
-	Send, ^{,}
-}
-else{
-	SendInput, {blind}j
-}
-return
-
 $z::
 if GetKeyState("RControl","P,"){
 	snapper()
@@ -532,19 +496,30 @@ else{
 }
 return
 
-$v::
+$b::
 if GetKeyState("RControl","P,"){
-	DllCall("LockWoorkStation")
+	DllCall("LockWorkStation")
 }
 else{
-	SendInput, {blind}v
+	SendInput, {blind}b
 }
-retturn
+return
 
-
-; $b:: - app specific
-; $n:: - app specific
-
+$n::
+if GetKeyState("RControl","P,"){
+	IfWinExist ahk_exe SnippingTool.exe
+		win_activate ahk_exe SnippingTool.exe
+	else
+		run,"path_to_executable"
+	WinWait ahk_exe SnippingTool.exe
+	WinActivate ahk_exe SnippingTool.exe
+	WinWaitActive ahk_exe SnippingTool.exe
+	Send, ^{n}
+}
+else{
+	SendInput, {blind}n
+}
+return
 
 $m::
 if GetKeyState("RControl","P,"){
