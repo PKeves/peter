@@ -1,4 +1,4 @@
-RControl up::send % (a_priorkey = “RControl”) ? “{RControl up}{esc}” : “{RControl up}”
+RControl up::send % (a_priorkey = "RControl") ? "{RControl up}{esc}" : "{RControl up}"
 
 +`::~
 return
@@ -20,12 +20,12 @@ Send, {Backspace}
 return
 
 ExtractAppTitle(FullTitle){
-	AppTitle := SubStr(FullTitle, InStr(FullTitle, “ “, false, -1) +1)
+	AppTitle := SubStr(FullTitle, InStr(FullTitle, " ", false, -1) +1)
 	return AppTtitle
 }
 
 snapper(){
-	WinExist(“A”)
+	WinExist("A")
 	WinGetPos, posX, posY, sizeX, sizeY
 	if(posX < (A_ScreenWidth / 2) -(sizeX / 2)){
 		WinMove, A ,, ((A-ScreenWidth / 2) -7), 0 , ((A_ScreenWidth /2) + 10), (A_ScreenHeight +7)
@@ -36,7 +36,7 @@ snapper(){
 }
 
 snapper_2(){
-	WinExist(“A”)
+	WinExist("A")
 	WinGetPos, posX, posY, sizeX, sizeY
 	if(posX < (A_ScreenWidth / 2) -(sizeX / 2)){
 		WinMove, A ,, -7, 0 , ((A_ScreenWidth / 2) +10), (A_ScreenHeight +7)
@@ -54,21 +54,21 @@ next_window(){
 	Else{
 		WinGetTitle, FullTitle, A
 		AppTitle := ExtractAppTitle(FullTitle)
-		SetTitleMatchMode, 2
-		WinGet, WindowsWithSameTitleList, List , %AppTitle%
-
-		If WindowsWithSameTitleList > 1; if several windows of same type  (title cheecking) exist{
-			WinActivate, % “ahk_id”
-			WindowsWithSameTitleList%WindowsWithSameTtitleList% ; Activate next window
+		SetTitleMatchMode, 2		
+		WinGet, WindowsWithSameTitleList, List, %AppTitle%
+		
+		If WindowsWithSameTitleList > 1 ; If several Window of same type (title checking) exist
+		{
+			WinActivate, % "ahk_id " WindowsWithSameTitleList%WindowsWithSameTitleList%	; Activate next Window	
 		}
 	}
 }
 $q::
-if GetKeyState(“RControl”,”P,”){
+if GetKeyState("RControl","P,"){
 	IfWinExist ahk_exe chrome.exe
-		win_activate ahk_exe chrome.exe
+		WinActivate ahk_exe chrome.exe
 	else
-		run,”path_to_executable”
+		run,"path_to_executable"
 	WinWait ahk_exe chrome.exe
 	WinActivate ahk_exe chrome.exe
 	WinWaitActive ahk_exe chrome.exe
@@ -79,11 +79,11 @@ else{
 return
 
 $w::
-if GetKeyState(“RControl”,”P,”){
+if GetKeyState("RControl","P,"){
 	IfWinExist ahk_exe Code.exe
-		win_activate ahk_exe Code.exe
+		WinActivate ahk_exe Code.exe
 	else
-		run,”path_to_executable”
+		run,"path_to_executable"
 	WinWait ahk_exe Code.exe
 	WinActivate ahk_exe Code.exe
 	WinWaitActive ahk_exe Code.exe
@@ -95,11 +95,11 @@ return
 
 
 $r::
-if GetKeyState(“RControl”,”P,”){
+if GetKeyState("RControl","P,"){
 	IfWinExist ahk_exe EXCEL.exe
 		win_activate ahk_exe EXCEL.exe
 	else
-		run,”path_to_executable”
+		run,"path_to_executable"
 	WinWait ahk_exe EXCEL.exe
 	WinActivate ahk_exe EXCEL.exe
 	WinWaitActive ahk_exe EXCEL.exe
@@ -110,11 +110,11 @@ else{
 return
 
 $t::
-if GetKeyState(“RControl”,”P,”){
+if GetKeyState("RControl","P,"){
 	IfWinExist ahk_exe OUTLOOK.exe
 		win_activate ahk_exe OUTLOOK.exe
 	else
-		run,”path_to_executable”
+		run,"path_to_executable"
 	WinWait ahk_exe OUTLOOK.exe
 	WinActivate ahk_exe OUTLOOK.exe
 	WinWaitActive ahk_exe OUTLOOK.exe
@@ -126,11 +126,11 @@ return
 
 
 $u::
-if GetKeyState(“RControl”,”P,”){
+if GetKeyState("RControl","P,"){
 	IfWinExist ahk_exe Symphony.exe
 		win_activate ahk_exe Symphony.exe
 	else
-		run,”path_to_executable”
+		run,"path_to_executable"
 	WinWait ahk_exe Symphony.exe
 	WinActivate ahk_exe Symphony.exe
 	WinWaitActive ahk_exe Symphony.exe
@@ -141,11 +141,11 @@ else{
 return
 
 $i::
-if GetKeyState(“RControl”,”P,”){
+if GetKeyState("RControl","P,"){
 	IfWinExist ahk_exe SnippingTool.exe
 		win_activate ahk_exe SnippingTool.exe
 	else
-		run,”path_to_executable”
+		run,"path_to_executable"
 	WinWait ahk_exe SnippingTool.exe
 	WinActivate ahk_exe SnippingTool.exe
 	WinWaitActive ahk_exe SnippingTool.exe
@@ -479,7 +479,7 @@ return
 
 
 $g::
-if GetKeyState(“RControl”,”P,”){
+if GetKeyState("RControl","P,"){
 	Send, {LWin}
 }
 else{
@@ -488,7 +488,7 @@ else{
 return
 
 $h::
-if GetKeyState(“RControl”,”P,”){
+if GetKeyState("RControl","P,"){
 	Send, #{v}
 }
 else{
@@ -497,7 +497,7 @@ else{
 return
 
 $j::
-if GetKeyState(“RControl”,”P,”){
+if GetKeyState("RControl","P,"){
 	Send, ^{,}
 }
 else{
@@ -506,7 +506,7 @@ else{
 return
 
 $z::
-if GetKeyState(“RControl”,”P,”){
+if GetKeyState("RControl","P,"){
 	snapper()
 }
 else{
@@ -515,7 +515,7 @@ else{
 return
 
 $x::
-if GetKeyState(“RControl”,”P,”){
+if GetKeyState("RControl","P,"){
 	WinMove, A ,, 0, 0 , A_ScreenWidth, A_ScreenHeight
 }
 else{
@@ -524,7 +524,7 @@ else{
 return
 
 $c::
-if GetKeyState(“RControl”,”P,”){
+if GetKeyState("RControl","P,"){
 	next_window()
 }
 else{
@@ -533,7 +533,7 @@ else{
 return
 
 $v::
-if GetKeyState(“RControl”,”P,”){
+if GetKeyState("RControl","P,"){
 	DllCall("LockWoorkStation")
 }
 else{
@@ -547,7 +547,7 @@ retturn
 
 
 $m::
-if GetKeyState(“RControl”,”P,”){
+if GetKeyState("RControl","P,"){
 	WinMinimizeAll
 }
 else{
@@ -556,7 +556,7 @@ else{
 return
 
 $,::
-if GetKeyState(“RControl”,”P,”){
+if GetKeyState("RControl","P,"){
 	DetectHiddenWindows. Off
     SetTitleMatchMode, 2
     WinGet, WindowList, List
@@ -590,7 +590,7 @@ return
 
 #ifWinActive ahk_exe chrome.exe
 $b::
-if GetKeyState(“RControl”,”P,”){
+if GetKeyState("RControl","P,"){
 	Send, +^{w}
 }
 else{
@@ -599,7 +599,7 @@ else{
 return
 
 $n::
-if GetKeyState(“RControl”,”P,”){
+if GetKeyState("RControl","P,"){
 	Send, ^{n}
 }
 else{

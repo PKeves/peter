@@ -5,7 +5,7 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 export PATH="/Library/Frameworks/Python.framework/Versions/3.7/apps:${PATH}"
 export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 export TIME_STYLE=long-iso  # sets yyyy-mm-dd hh:mm as default date format
-peter_dir='/Users/peter'
+home_dir='/Users/peter'
 host_dir=$peter_dir  # when working on different host change it to host_dir
 PS1=$'\e[1;36m$PWD $ \E[0m'
 
@@ -59,13 +59,17 @@ cpo(){
     gcp -R $1 $2
     op $2
 } # cp + open
-alias df='code -dw' #difference
+alias df='code -dw' 
+alias do='docker'
 dp(){
     hidutil property --set '{"UserKeyMapping":
     [{"HIDKeyboardModifierMappingSrc":0x7000000E3,
     "HIDKeyboardModifierMappingDst":0x7000000E3},
     {"HIDKeyboardModifierMappingSrc":0x7000000E0,
-    "HIDKeyboardModifierMappingDst":0x7000000E0}]
+    "HIDKeyboardModifierMappingDst":0x7000000E0},
+    {"HIDKeyboardModifierMappingSrc":0x700000039,
+    "HIDKeyboardModifierMappingDst":0x700000029},
+    ]
     }' > /dev/null
     open -a /Applications/BetterTouchTool.app --hide 
     open -a /Applications/Karabiner-Elements.app --hide 
@@ -83,7 +87,6 @@ dp(){
     open -a "/Applications/Google Chrome.app"
 } # default profile
 alias ex='exit'
-alias ds='fc -s'
 alias fb='which'  #find bin
 fd() {
     dir="" ; name=""
@@ -157,7 +160,14 @@ hd() { if [ $# -eq 2 ] ; then head -n $1 $2; printf "\n"; else head $1 ; printf 
 alias hs='history'  #history
 alias jn='jupyter notebook'
 alias ka='killall'  #kill all
+alias kc='kubectl'
 alias kp='kill -9'  #kill process
+function ku {
+  kustomize build \
+    --enable-helm \
+    --helm-command helm \
+    $DEMO_HOME/$1
+}
 alias lj='jobs'  #list jobs
 la() {
 gls -A --group-directories-first $1 -I ".DS_Store" 
@@ -173,7 +183,7 @@ lp(){
     ps -eaf | grep $1
     fi
 }  # list process
-alias me='whoami'  #me
+alias mk='minikube'
 alias me='whoami'  #me
 alias nd='mkdir -p'  #new directory
 nda(){ mkdir -p $1 && cd $1; } #nd + absorb
@@ -320,7 +330,9 @@ sp(){
     [{"HIDKeyboardModifierMappingSrc":0x7000000E3, 
     "HIDKeyboardModifierMappingDst":0x7000000E0},
     {"HIDKeyboardModifierMappingSrc":0x7000000E0,
-    "HIDKeyboardModifierMappingDst":0x7000000E3}]
+    "HIDKeyboardModifierMappingDst":0x7000000E3},
+    {"HIDKeyboardModifierMappingSrc":0x700000039,
+    "HIDKeyboardModifierMappingDst":0x700000029}]
     }' > /dev/null
     osascript -e 'tell app "BetterTouchTool" to quit'
     osascript -e 'tell app "Karabiner-Menu" to quit'
@@ -328,7 +340,7 @@ sp(){
     osascript -e 'tell app "Karabiner-NotificationWindow" to quit'
     launchctl bootout gui/`id -u`/org.pqrs.karabiner.karabiner_console_user_server > /dev/null
     osascript -e '
-    tell application "Finder"
+     application "Finder"
         set visible of every process whose visible is true and name is not "java" to false
         set the collapsed of windows to true
     end tell
@@ -338,3 +350,8 @@ sp(){
 } # secure profile
 alias py='python'
 tl() { if [ $# -eq 2 ] ; then tail -n $1 $2; printf "\n"; else tail $1 ; printf "\n"; fi }  #tail $file | tail $file $limit
+
+#k8s
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh" source <(kubectl completion bash)
+alias kc=kubectl
+complete -F __start_kubectl kc
